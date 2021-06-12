@@ -1,47 +1,55 @@
-import React from 'react'
+
+
+import React,{ useEffect, useState} from 'react'
 import { Button, Checkbox, Icon, Table } from 'semantic-ui-react'
+import CandidateService from '../Services/candidateService'
+
+
 export default function CandidateList() {
+    const [candidates, setCandidates] = useState([])
+    useEffect(()=>{
+        let candidateService = new CandidateService()
+        candidateService.getCandidates().then(result=>setCandidates(result.data.data))
+    })
+
+
     return (
         <div>
             <Table compact celled definition>
                 <Table.Header>
                     <Table.Row>
                         <Table.HeaderCell />
+
                         <Table.HeaderCell>Name</Table.HeaderCell>
-                        <Table.HeaderCell>Registration Date</Table.HeaderCell>
+                        <Table.HeaderCell>Last Name</Table.HeaderCell>
                         <Table.HeaderCell>E-mail address</Table.HeaderCell>
-                        <Table.HeaderCell>Premium Plan</Table.HeaderCell>
+                        <Table.HeaderCell>Password</Table.HeaderCell>
+                        <Table.HeaderCell>Birth Date</Table.HeaderCell>
+                        <Table.HeaderCell>Identity Number</Table.HeaderCell>
+                        <Table.HeaderCell>Photo</Table.HeaderCell>
                     </Table.Row>
                 </Table.Header>
 
                 <Table.Body>
-                    <Table.Row>
-                        <Table.Cell collapsing>
-                            <Checkbox slider />
-                        </Table.Cell>
-                        <Table.Cell>John Lilki</Table.Cell>
-                        <Table.Cell>September 14, 2013</Table.Cell>
-                        <Table.Cell>jhlilk22@yahoo.com</Table.Cell>
-                        <Table.Cell>No</Table.Cell>
-                    </Table.Row>
-                    <Table.Row>
-                        <Table.Cell collapsing>
-                            <Checkbox slider />
-                        </Table.Cell>
-                        <Table.Cell>Jamie Harington</Table.Cell>
-                        <Table.Cell>January 11, 2014</Table.Cell>
-                        <Table.Cell>jamieharingonton@yahoo.com</Table.Cell>
-                        <Table.Cell>Yes</Table.Cell>
-                    </Table.Row>
-                    <Table.Row>
-                        <Table.Cell collapsing>
-                            <Checkbox slider />
-                        </Table.Cell>
-                        <Table.Cell>Jill Lewis</Table.Cell>
-                        <Table.Cell>May 11, 2014</Table.Cell>
-                        <Table.Cell>jilsewris22@yahoo.com</Table.Cell>
-                        <Table.Cell>Yes</Table.Cell>
-                    </Table.Row>
+                    {
+                        candidates.map((candidate)=>(
+                            <Table.Row key={candidate.id}>
+                            <Table.Cell collapsing>
+                                <Checkbox slider />
+                            </Table.Cell>
+                            <Table.Cell>{candidate.firstName}</Table.Cell>
+                            <Table.Cell>{candidate.lastName}</Table.Cell>
+                            <Table.Cell>{candidate.email}</Table.Cell>
+                            <Table.Cell>{candidate.password}</Table.Cell>
+                            <Table.Cell>{candidate.birthDate}</Table.Cell>
+                            <Table.Cell>{candidate.identityNumber}</Table.Cell>
+                            <Table.Cell>{candidate.candidatePhoto}</Table.Cell>
+                        </Table.Row>
+                        ))
+                    }
+
+
+
                 </Table.Body>
 
                 <Table.Footer fullWidth>
