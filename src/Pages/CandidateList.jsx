@@ -15,7 +15,7 @@ export default function CandidateList() {
 
     return (
         <div>
-            <Table compact celled definition>
+            <Table compact  celled definition>
                 <Table.Header>
                     <Table.Row>
                         <Table.HeaderCell />
