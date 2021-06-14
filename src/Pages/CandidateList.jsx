@@ -1,5 +1,4 @@
 
-
 import React,{ useEffect, useState} from 'react'
 import { Button, Checkbox, Icon, Table } from 'semantic-ui-react'
 import CandidateService from '../Services/candidateService'
@@ -10,7 +9,7 @@ export default function CandidateList() {
     useEffect(()=>{
         let candidateService = new CandidateService()
         candidateService.getCandidates().then(result=>setCandidates(result.data.data))
-    })
+    },[])
 
 
     return (

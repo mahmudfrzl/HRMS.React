@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import { Button, Dropdown, Menu } from 'semantic-ui-react'
+import { Dropdown, Menu } from 'semantic-ui-react'
 import { Container} from 'semantic-ui-react'
 import Signedin from './Signedin'
 import SignOut from './SignOut'
