@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import JobAdvertisementService from '../Services/jobAdvertisementService'
 import { Table, Button,Header,Icon } from "semantic-ui-react";
+import { Link } from 'react-router-dom';
 export default function JobAdvertisementList() {
     const [jobAdvertisements, setJobAdvertisement] = useState([])
     const colors = ["red",]
@@ -46,7 +47,7 @@ export default function JobAdvertisementList() {
                                 <Table.Cell>{jobadvertisement.applicationDate}</Table.Cell>
                                 <Table.Cell>{jobadvertisement.enable.toString()}</Table.Cell>
                                 <Table.Cell>
-                                    <Button>View</Button>
+                                    <Link to={"/jobAdvertisementDetail"}><Button>View</Button></Link> 
                                 </Table.Cell>
                             </Table.Row>
                         ))}

@@ -27,7 +27,7 @@ export default function EmployerList() {
                         <Table.HeaderCell>Company Name</Table.HeaderCell>
                         <Table.HeaderCell>Web Address</Table.HeaderCell>
                         <Table.HeaderCell>Phone Number</Table.HeaderCell>
-                        <Table.HeaderCell>Activated</Table.HeaderCell>
+                        
                         
                     </Table.Row>
                 </Table.Header>
@@ -44,7 +44,7 @@ export default function EmployerList() {
                                 <Table.Cell>{employer.companyName}</Table.Cell>
                                 <Table.Cell>{employer.webAdress}</Table.Cell>
                                 <Table.Cell>{employer.phoneNumber}</Table.Cell>
-                                <Table.Cell>{employer.activated}</Table.Cell>
+                                
 
                             </Table.Row>
                         ))

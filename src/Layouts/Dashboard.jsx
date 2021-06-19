@@ -6,19 +6,30 @@ import EmployerList from '../Pages/EmployerList'
 import { Route } from 'react-router'
 import EmployeeList from '../Pages/EmployeeList'
 import JobAdvertisementList from '../Pages/JobAdvertisementList'
+import ResumeList from '../Pages/ResumeList'
+import JobAdvertisementDetail from '../Pages/JobAdvertisementDetail'
+
+
+
 export default function Dashboard() {
     return (
         <div>
             <Grid>
                 <Grid.Row>
                     <Grid.Column width={5}>
-                    <Categories/>
+                    <Route path="/jadvert" component={Categories}/>
+                    <Route path="/candidates" component={Categories}/>
+                    <Route path="/employers" component={Categories}/>
+                    <Route path="/employees" component={Categories}/>
                     </Grid.Column>
                     <Grid.Column width={11}>
                     <Route  path="/jadvert" component={JobAdvertisementList}/>
                     <Route  path="/candidates" component={CandidateList}/>
                     <Route path="/employers" component={EmployerList}/>
                     <Route path="/employees" component={EmployeeList}/>
+                    <Route path="/resume" component={ResumeList} />
+                    <Route path="/jobAdvertisementDetail" component={JobAdvertisementDetail} />
+                    
                     </Grid.Column>
                 </Grid.Row>
             </Grid>
