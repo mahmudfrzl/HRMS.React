@@ -24,7 +24,7 @@ export default function JobAdvertisementDetail() {
                     <Grid.Column width={6}>
                         <Table celled color={"black"} stackable>
                             <Table.Header>
-                                {console.log(jobAdvertisements)}
+                                
                                 <Table.Row>
                                     <Table.HeaderCell>Employer</Table.HeaderCell>
                                     <Table.HeaderCell>Information</Table.HeaderCell>
@@ -32,7 +32,9 @@ export default function JobAdvertisementDetail() {
                             </Table.Header>
 
                             <Table.Body>
+                            {console.log(jobAdvertisements)}
 
+                                
                                 <Table.Row textAlign={"left"}>
                                     <Table.Cell>
                                         <Header as="h4" image>
@@ -40,8 +42,10 @@ export default function JobAdvertisementDetail() {
                                                 <Icon name="building" />
                                                 Company Name
                                             </Header.Content>
+                                            
                                         </Header>
                                     </Table.Cell>
+                                    
                                     <Table.Cell>{jobAdvertisements.employer?.companyName}</Table.Cell>
                                 </Table.Row>
 

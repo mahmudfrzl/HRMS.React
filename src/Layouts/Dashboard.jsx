@@ -6,7 +6,7 @@ import EmployerList from '../Pages/EmployerList'
 import { Route } from 'react-router'
 import EmployeeList from '../Pages/EmployeeList'
 import JobAdvertisementList from '../Pages/JobAdvertisementList'
-import ResumeList from '../Pages/ResumeList'
+
 import JobAdvertisementDetail from '../Pages/JobAdvertisementDetail'
 
 
@@ -27,7 +27,7 @@ export default function Dashboard() {
                     <Route  path="/candidates" component={CandidateList}/>
                     <Route path="/employers" component={EmployerList}/>
                     <Route path="/employees" component={EmployeeList}/>
-                    <Route path="/resume" component={ResumeList} />
+                    
                     <Route path="/jobAdvertisementDetail" component={JobAdvertisementDetail} />
                     
                     </Grid.Column>

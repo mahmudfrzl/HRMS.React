@@ -1,7 +1,8 @@
 
 import React,{ useEffect, useState} from 'react'
-import { Button, Checkbox, Icon, Table } from 'semantic-ui-react'
+import {  Checkbox, Icon, Table,Button } from 'semantic-ui-react'
 import CandidateService from '../Services/candidateService'
+import { Link } from 'react-router-dom';
 
 
 export default function CandidateList() {
@@ -22,10 +23,9 @@ export default function CandidateList() {
                         <Table.HeaderCell>Name</Table.HeaderCell>
                         <Table.HeaderCell>Last Name</Table.HeaderCell>
                         <Table.HeaderCell>E-mail address</Table.HeaderCell>
-                        <Table.HeaderCell>Password</Table.HeaderCell>
                         <Table.HeaderCell>Birth Date</Table.HeaderCell>
                         <Table.HeaderCell>Identity Number</Table.HeaderCell>
-                        <Table.HeaderCell>Photo</Table.HeaderCell>
+                        <Table.HeaderCell>CV</Table.HeaderCell>
                     </Table.Row>
                 </Table.Header>
 
@@ -39,10 +39,11 @@ export default function CandidateList() {
                             <Table.Cell>{candidate.firstName}</Table.Cell>
                             <Table.Cell>{candidate.lastName}</Table.Cell>
                             <Table.Cell>{candidate.email}</Table.Cell>
-                            <Table.Cell>{candidate.password}</Table.Cell>
                             <Table.Cell>{candidate.birthDate}</Table.Cell>
                             <Table.Cell>{candidate.identityNumber}</Table.Cell>
-                            <Table.Cell>{candidate.candidatePhoto}</Table.Cell>
+                            <Table.Cell>
+                                    <Link to={`/resume/${candidate.id}`}><Button>View</Button></Link> 
+                                </Table.Cell>
                         </Table.Row>
                         ))
                     }

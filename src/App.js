@@ -8,6 +8,7 @@ import JobAdvertisementAddList from './Pages/JobAdvertisementAddList';
 import { Route } from 'react-router'
 import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
+import ResumeList from './Pages/ResumeList';
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
       <Container className="main">
       <Dashboard/>
       <Route path="/addadvert" component={JobAdvertisementAddList} />
-            
+      <Route path="/resume/:id" component={ResumeList} />
       </Container>
       <ToastContainer
         position="bottom-right"

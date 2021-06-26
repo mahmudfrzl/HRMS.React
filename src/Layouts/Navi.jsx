@@ -27,10 +27,7 @@ export default function Navi() {
                         icon="list"
                         name='Job Advertisement'
                     />
-                    <Menu.Item
-                        icon="id card outline"
-                        name='Cv'
-                    />
+
 
                     <Menu.Menu position='right'>
                     <Menu.Item as={Link} to={"/addadvert"}
