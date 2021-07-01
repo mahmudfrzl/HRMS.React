@@ -30,3 +30,6 @@ a:hover{
 .imagerel{
     position: relative;
 }
+.btnUpdate{
+    width: 26em;
+}

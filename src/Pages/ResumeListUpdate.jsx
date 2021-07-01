@@ -117,7 +117,7 @@ export default function ResumeListUpdate() {
 
                         <Table.Body>
                             <Table.Row>
-                                <Table.Cell><ExperienceAdd addExperience={() => add()}></ExperienceAdd></Table.Cell>
+                                <Table.Cell><ExperienceAdd candidateId = {id} addExperience={() => add()}></ExperienceAdd></Table.Cell>
 
                             </Table.Row>
                         </Table.Body>

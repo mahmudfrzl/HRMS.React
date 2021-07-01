@@ -59,7 +59,7 @@ export default function SchoolAdd(props) {
 
                 <Form className="ui form inverted">
                     <FormField className="text-center">
-                        <Label size="big" color="blue" content="New Experience" />
+                        <Label size="big" color="blue" content="New School" />
                     </FormField>
                     <FormGroup className="mt-4" widths="equal">
                         <FormField>

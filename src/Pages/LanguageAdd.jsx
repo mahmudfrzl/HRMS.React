@@ -55,7 +55,7 @@ export default function LanguageAdd() {
 
                 <Form className="ui form inverted">
                     <FormField className="text-center">
-                        <Label size="big" color="blue" content="New Experience" />
+                        <Label size="big" color="blue" content="New Language" />
                     </FormField>
                     <FormGroup className="mt-4" widths="equal">
                         <FormField>

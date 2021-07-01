@@ -4,8 +4,8 @@ export default class CandidateCvService{
     updateCovverLetter(){
         return axios.post("http://localhost:8080/api/candidatecv/addCovverLetter")
     }
-    updateExperience(){
-        return axios.post("http://localhost:8080/api/candidatecv/addExperience")
+    updateExperience(experience){
+        return axios.post("http://localhost:8080/api/candidatecv/addExperience",experience)
     }
     updateLanguage(){
         return axios.post("http://localhost:8080/api/candidatecv/addLanguage")

@@ -16,33 +16,26 @@ export default function ExperienceAdd(props) {
 
     }
     const schema = Yup.object({
+
+
         startDate: Yup.string().matches(/^(19|20)\d\d[-](0[1-9]|1[012])[-](0[1-9]|[12][0-9]|3[01])$/,
             "Girmiş olduğunuz son başvuru tarihi, tarih formatında değildir.(YYYY-AA-GG)"),
         quitDate: Yup.string().matches(/^(19|20)\d\d[-](0[1-9]|1[012])[-](0[1-9]|[12][0-9]|3[01])$/,
             "Girmiş olduğunuz son başvuru tarihi, tarih formatında değildir.(YYYY-AA-GG)")
     });
+
     function handleSubmit(values) {
+        const experience = {
+            jobPositionId: parseInt(values.jobPositionId), quitDate: values.quitDate, startDate: values.startDate,
+
+            workPlaceName: values.workPlaceName,
+
+            candidateId: 4  
+        }
+        console.log(experience)
         let candidateCVService = new CandidateCvService()
-        candidateCVService.updateExperience(values).then(function (response) {
-            if (!response.data[0].success) {
-                toast.error(response.data[0].message, {
-                    position: "bottom-right",
-                    autoClose: 4000,
-                    hideProgressBar: false,
-                    closeOnClick: false,
-                });
-            } else {
-                toast.success(response.data[0].message, {
-                    position: "bottom-right",
-                    autoClose: 4000,
-                    hideProgressBar: false,
-                    closeOnClick: false,
-                });
-                document.getElementById("resumeForm").reset();
-            }
+        candidateCVService.updateExperience(experience)
 
-
-        })
     }
 
     return (
@@ -53,7 +46,7 @@ export default function ExperienceAdd(props) {
         <Formik initialValues={initialValues}
             validationSchema={schema}
             onSubmit={(values) => {
-                console.log(values)
+                handleSubmit(values)
             }}
         >
 
@@ -112,6 +105,7 @@ export default function ExperienceAdd(props) {
                             />
                         </FormField>
                     </FormGroup>
+                    <Button color="green">Update</Button>
                 </Form>
 
             </Segment>

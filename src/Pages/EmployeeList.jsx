@@ -1,75 +1,60 @@
 import React, { useEffect, useState } from 'react'
-import { Button, Checkbox, Icon, Table,Card } from 'semantic-ui-react'
+import { Link, useParams } from 'react-router-dom'
+import { Button, Card} from 'semantic-ui-react'
 import EmployeeService from '../Services/employeeService'
 
 export default function EmployeeList() {
-    
+    const { id } = useParams()
     const [employees, setEmployees] = useState([])
-    useEffect(()=>{
+    useEffect(() => {
         let employeeService = new EmployeeService()
-        employeeService.getEmployees().then(result=>setEmployees(result.data.data))
+        employeeService.getEmployees().then(result => setEmployees(result.data.data))
     }, [])
     return (
-        
-
-        
-            <Table  compact celled definition>
-                <Table.Header>
-                    <Table.Row>
-                        <Table.HeaderCell />
-
-                        <Table.HeaderCell>E-mail address</Table.HeaderCell>
-                        <Table.HeaderCell>Password</Table.HeaderCell>
-                        <Table.HeaderCell>First Name</Table.HeaderCell>
-                        <Table.HeaderCell>Last Name</Table.HeaderCell>
-                        <Table.HeaderCell>Approval OF Employee</Table.HeaderCell>
-                        
-                    </Table.Row>
-                </Table.Header>
-
-                <Table.Body>
-                    {
-                        employees.map((employee) => (
-                            <Table.Row key={employee.id}>
-                                <Table.Cell collapsing>
-                                    <Checkbox slider />
-                                </Table.Cell>
-                                <Table.Cell>{employee.email}</Table.Cell>
-                                <Table.Cell>{employee.password}</Table.Cell>
-                                <Table.Cell>{employee.firstName}</Table.Cell>
-                                <Table.Cell>{employee.lastName}</Table.Cell>
-                                <Table.Cell>{employee.approvalOfEmployee}</Table.Cell>
-
-                            </Table.Row>
-                        ))
-                    }
 
 
+        <div>
+            {
+                employees.map((employee) => (
+                    <Card fluid className="cardFloat"  left key={employee.id}>
+                        <Card.Content>
+                            <Card.Header>{employee.firstName}  {employee.lastName}</Card.Header>
+                            <Card.Description>{employee.email}</Card.Description>
+                        </Card.Content>
+                        <Card.Content >
+                            <div className='ui two buttons'>
 
-                </Table.Body>
+                                <Link to={`employees/update/${id}`}>
+                                    
+                                        <Button  className="btnUpdate" basic color='green'>
+                                            Update
+                                        </Button>
+                                    
+                                    <br />
+                                </Link>
+                                <Link to={`employees/update/${employee.id}`}>
+                                    
+                                        <Button  className="btnUpdate" basic color='red'>
+                                            Delete
+                                        </Button>
+                                    
+                                </Link>
+                            </div>
+                        </Card.Content>
+                    </Card>
+                ))
+            }
+        </div>
 
-                <Table.Footer fullWidth>
-                    <Table.Row>
-                        <Table.HeaderCell />
-                        <Table.HeaderCell colSpan='4'>
-                            <Button
-                                floated='right'
-                                icon
-                                labelPosition='left'
-                                primary
-                                size='small'
-                            >
-                                <Icon name='user' /> Add User
-                            </Button>
-                            <Button size='small'>Approve</Button>
-                            <Button disabled size='small'>
-                                Approve All
-                            </Button>
-                        </Table.HeaderCell>
-                    </Table.Row>
-                </Table.Footer>
-            </Table>
+
+
+
 
 
     )
+
+
+
+
+
 }
