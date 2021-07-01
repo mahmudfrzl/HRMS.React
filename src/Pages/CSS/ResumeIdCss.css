@@ -8,3 +8,25 @@
 a:hover{
     color: white;
 }
+.btnLength{
+    width: 20em;
+    height: 4em;
+}
+.btnLinkLength{
+    width: 10em;
+    height: 2.5em;
+}
+.cvContainer{
+    padding: 5em;
+}
+
+.profilPhotoUpdate{
+    position: fixed;
+    margin-left: 25em;
+    
+
+
+}
+.imagerel{
+    position: relative;
+}

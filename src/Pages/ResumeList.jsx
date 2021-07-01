@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import ResumeService from '../Services/resumeService'
 import { Table, List, Rating, Image, Reveal, Grid, Button, Icon } from 'semantic-ui-react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import "../Pages/CSS/ResumeIdCss.css"
 
 export default function ResumeList() {
@@ -32,7 +32,7 @@ export default function ResumeList() {
                                         <Reveal.Content hidden>
                                             <Image src={profil.url} size='big' circular />
                                         </Reveal.Content>
-                                        <Button>Update</Button>
+                                        
                                     </Reveal>
 
                                 ))}
@@ -41,16 +41,19 @@ export default function ResumeList() {
                                     <List.Item>
                                         <List.Icon />
                                         <List.Content>
-                                            <Button color="black"><Icon name="github" /> <a className="githubLink" href={link.githubLink}>Github</a></Button>
+                                            <Button className="btnLinkLength" color="black"><Icon name="github" /> <a className="githubLink" href={link.githubLink}>Github</a></Button>
                                         </List.Content>
                                     </List.Item>
-                                    
+
                                     <List.Item>
                                         <List.Icon />
                                         <List.Content >
-                                            <Button color="linkedin" ><Icon name="linkedin" /> <a className="linkedinLink"  href={link.linkedinLink}>LinkedIn</a></Button>
+                                            <Button className="btnLinkLength" color="linkedin" ><Icon name="linkedin" /> <a className="linkedinLink" href={link.linkedinLink}>LinkedIn</a></Button>
                                         </List.Content>
                                     </List.Item>
+
+
+
                                 </div>
 
                             </List>
@@ -145,7 +148,22 @@ export default function ResumeList() {
                                 </Table.Row>
                             ))}
                         </Table.Body>
+
                     </Table>
+                    <List.Item>
+                        <List.Content >
+                            <Link to={`/resume/update/${id}`}>
+                                <Button className="btnLength" color="green">
+                                    Add
+                                </Button>
+                            </Link>
+                            <Link to={`/resume/update/${id}`}>
+                                <Button  className="btnLength" color="youtube">
+                                    Update
+                                </Button>
+                            </Link>
+                        </List.Content>
+                    </List.Item>
 
                 </Grid.Column>
             </Grid.Row>

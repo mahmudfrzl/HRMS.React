@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Button, Checkbox, Icon, Table } from 'semantic-ui-react'
+import { Button, Checkbox, Icon, Table,Card } from 'semantic-ui-react'
 import EmployeeService from '../Services/employeeService'
 
 export default function EmployeeList() {
@@ -10,7 +10,9 @@ export default function EmployeeList() {
         employeeService.getEmployees().then(result=>setEmployees(result.data.data))
     }, [])
     return (
-        <div>
+        
+
+        
             <Table  compact celled definition>
                 <Table.Header>
                     <Table.Row>
@@ -67,6 +69,7 @@ export default function EmployeeList() {
                     </Table.Row>
                 </Table.Footer>
             </Table>
-        </div>
+
+
     )
 }

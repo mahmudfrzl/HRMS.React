@@ -11,6 +11,7 @@ import JobAdvertisementDetail from '../Pages/JobAdvertisementDetail'
 
 
 
+
 export default function Dashboard() {
     return (
         <div>
@@ -29,6 +30,7 @@ export default function Dashboard() {
                     <Route path="/employees" component={EmployeeList}/>
                     
                     <Route path="/jobAdvertisementDetail" component={JobAdvertisementDetail} />
+                    
                     
                     </Grid.Column>
                 </Grid.Row>

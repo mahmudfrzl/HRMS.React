@@ -10,4 +10,7 @@ export default class EmployeeService{
     addEmployee(){
         return axios.post("http://localhost:8080/api/employee/add")
     }
+    updateEmployee(){
+        return axios.put("http://localhost:8080/api/employee/update")
+    }
 }

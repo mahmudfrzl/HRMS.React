@@ -9,6 +9,8 @@ import { Route } from 'react-router'
 import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import ResumeList from './Pages/ResumeList';
+import ResumeListUpdate from './Pages/ResumeListUpdate';
+
 
 function App() {
   return (
@@ -17,7 +19,9 @@ function App() {
       <Container className="main">
       <Dashboard/>
       <Route path="/addadvert" component={JobAdvertisementAddList} />
-      <Route path="/resume/:id" component={ResumeList} />
+      <Route exact path="/resume/:id" component={ResumeList} />
+      <Route path="/resume/update/:id" component={ResumeListUpdate} />
+      
       </Container>
       <ToastContainer
         position="bottom-right"
