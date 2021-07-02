@@ -7,37 +7,35 @@ import { toast } from "react-toastify";
 import * as Yup from "yup";
 import CandidateCvService from "../Services/candidateCVService";
 import HRMSTextInput from '../Utilities/customFormControls/HRMSTextInput';
+import { useParams } from "react-router-dom";
 export default function LanguageAdd() {
+    const {id} = useParams()
     const initialValues = {
         name: "",
         languageLevel: "",
 
     }
     const schema = Yup.object({
-        name: Yup.string(),
+        name: Yup.string().required("Shouldn't be left blank"),
         languageLevel: Yup.number()
     });
     function handleSubmit(values) {
+        const language ={
+            languageLevel : parseInt(values.languageLevel),
+            name: values.name,
+            candidateId:id 
+
+        }
+        console.log(language)
         let candidateCVService = new CandidateCvService()
-        candidateCVService.updateLanguage(values).then(function (response) {
-            if (toast.success(response.data.message, {
-                position: "bottom-right",
-                autoClose: 4000,
-                hideProgressBar: false,
-                closeOnClick: false,
-            })) {
-
-            }
-
-
-        })
+        candidateCVService.updateLanguage(language)
     }
 
     return (
 <Formik initialValues={initialValues}
             validationSchema={schema}
             onSubmit={(values) => {
-                console.log(values)
+                handleSubmit(values)
             }}
         >
 
@@ -77,7 +75,9 @@ export default function LanguageAdd() {
                             />
                         </FormField>
                     </FormGroup>
+                    <Button color="green">Update</Button>
                 </Form>
+                
 
             </Segment>
         </Formik>

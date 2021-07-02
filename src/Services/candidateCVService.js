@@ -1,25 +1,25 @@
 import axios from "axios";
 
 export default class CandidateCvService{
-    updateCovverLetter(){
-        return axios.post("http://localhost:8080/api/candidatecv/addCovverLetter")
+    updateCovverLetter(covverLetter){
+        return axios.post("http://localhost:8080/api/candidatecv/addCovverLetter",covverLetter)
     }
     updateExperience(experience){
         return axios.post("http://localhost:8080/api/candidatecv/addExperience",experience)
     }
-    updateLanguage(){
-        return axios.post("http://localhost:8080/api/candidatecv/addLanguage")
+    updateLanguage(language){
+        return axios.post("http://localhost:8080/api/candidatecv/addLanguage",language)
     }
-    updateLink(){
-        return axios.post("http://localhost:8080/api/candidatecv/addLink")
+    updateLink(link){
+        return axios.post("http://localhost:8080/api/candidatecv/addLink",link)
     }
-    updateSchool(){
-        return axios.post("http://localhost:8080/api/candidatecv/addSchool")
+    updateSchool(school){
+        return axios.post("http://localhost:8080/api/candidatecv/addSchool",school)
     }
-    updateTechnelogy(){
-        return axios.post("http://localhost:8080/api/candidatecv/addTechnelogy")
+    updateTechnelogy(skill){
+        return axios.post("http://localhost:8080/api/candidatecv/addTechnelogy",skill)
     }
-    updatePhoto(){
-        return axios.post("http://localhost:8080/api/candidatecv/upload")
+    updatePhoto(photo){
+        return axios.post("http://localhost:8080/api/candidatecv/upload",photo)
     }
 }

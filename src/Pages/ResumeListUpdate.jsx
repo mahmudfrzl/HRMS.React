@@ -24,7 +24,7 @@ export default function ResumeListUpdate() {
         resumeService.getById(id).then(result => setResume(result.data.data))
     }, [id])
 
-  
+
     const initialValues = {
         githubLink: "",
         linkedinLink: "",
@@ -104,7 +104,7 @@ export default function ResumeListUpdate() {
                             </Table>
                         </FormGroup>
                         <FormField className="text-center mt-4">
-                            <Button color="green" type="submit" >Finish</Button>
+                            <Button color="green" type="submit" >Update</Button>
                         </FormField>
 
                     </Form>
@@ -131,7 +131,7 @@ export default function ResumeListUpdate() {
 
                         <Table.Body>
                             <Table.Row>
-                                <Table.Cell><SchoolAdd addSchool={() => add()}></SchoolAdd></Table.Cell>
+                                <Table.Cell><SchoolAdd  candidateId = {id} addSchool={() => add()}></SchoolAdd></Table.Cell>
 
                             </Table.Row>
                         </Table.Body>
@@ -145,7 +145,7 @@ export default function ResumeListUpdate() {
 
                         <Table.Body>
                             <Table.Row>
-                                <Table.Cell><SkillsAdd addSkills={() => add()}></SkillsAdd></Table.Cell>
+                                <Table.Cell><SkillsAdd  candidateId = {id} addSkills={() => add()}></SkillsAdd></Table.Cell>
 
                             </Table.Row>
                         </Table.Body>
@@ -159,7 +159,7 @@ export default function ResumeListUpdate() {
 
                         <Table.Body>
                             <Table.Row>
-                                <Table.Cell><LanguageAdd addLanguage={() => add()}></LanguageAdd></Table.Cell>
+                                <Table.Cell><LanguageAdd   candidateId = {id} addLanguage={() => add()}></LanguageAdd></Table.Cell>
 
                             </Table.Row>
                         </Table.Body>

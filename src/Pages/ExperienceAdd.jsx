@@ -6,8 +6,9 @@ import { toast } from "react-toastify";
 import * as Yup from "yup";
 import CandidateCvService from "../Services/candidateCVService";
 import HRMSTextInput from '../Utilities/customFormControls/HRMSTextInput';
+import { useParams } from "react-router-dom";
 export default function ExperienceAdd(props) {
-
+    const {id} = useParams()
     const initialValues = {
         jobPositionId: "",
         quitDate: "",
@@ -19,9 +20,9 @@ export default function ExperienceAdd(props) {
 
 
         startDate: Yup.string().matches(/^(19|20)\d\d[-](0[1-9]|1[012])[-](0[1-9]|[12][0-9]|3[01])$/,
-            "Girmiş olduğunuz son başvuru tarihi, tarih formatında değildir.(YYYY-AA-GG)"),
+            "The application deadline you entered is not in date format.(YYYY-AA-GG)"),
         quitDate: Yup.string().matches(/^(19|20)\d\d[-](0[1-9]|1[012])[-](0[1-9]|[12][0-9]|3[01])$/,
-            "Girmiş olduğunuz son başvuru tarihi, tarih formatında değildir.(YYYY-AA-GG)")
+            "The application deadline you entered is not in date format.(YYYY-AA-GG)")
     });
 
     function handleSubmit(values) {
@@ -30,7 +31,7 @@ export default function ExperienceAdd(props) {
 
             workPlaceName: values.workPlaceName,
 
-            candidateId: 4  
+            candidateId: id
         }
         console.log(experience)
         let candidateCVService = new CandidateCvService()

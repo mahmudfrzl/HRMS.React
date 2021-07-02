@@ -24,7 +24,7 @@ export default function EmployeeList() {
                         <Card.Content >
                             <div className='ui two buttons'>
 
-                                <Link to={`employees/update/${id}`}>
+                                <Link to={`employees/update/${employee.id}`}>
                                     
                                         <Button  className="btnUpdate" basic color='green'>
                                             Update
@@ -32,7 +32,7 @@ export default function EmployeeList() {
                                     
                                     <br />
                                 </Link>
-                                <Link to={`employees/update/${employee.id}`}>
+                                <Link to={`employees/delete/${employee.id}`}>
                                     
                                         <Button  className="btnUpdate" basic color='red'>
                                             Delete

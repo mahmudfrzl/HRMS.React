@@ -6,42 +6,41 @@ import { toast } from "react-toastify";
 import * as Yup from "yup";
 import CandidateCvService from "../Services/candidateCVService";
 import HRMSTextInput from '../Utilities/customFormControls/HRMSTextInput';
+import { useParams } from "react-router-dom";
 
-export default function SchoolAdd(props) {
+export default function SchoolAdd() {
+    const {id} = useParams()
     const initialValues = {
         department: "",
-        schoolId: "",
+        name: "",
         startDate: "",
         gradiationDate: "",
-        typeName:""
+        
+        schoolType:""
     }
     const schema = Yup.object({
         startDate: Yup.string().matches(/^(19|20)\d\d[-](0[1-9]|1[012])[-](0[1-9]|[12][0-9]|3[01])$/,
-            "Girmiş olduğunuz son başvuru tarihi, tarih formatında değildir.(YYYY-AA-GG)"),
+            "The application deadline you entered is not in date format.(YYYY-AA-GG)"),
         gradiationDate: Yup.string().matches(/^(19|20)\d\d[-](0[1-9]|1[012])[-](0[1-9]|[12][0-9]|3[01])$/,
-            "Girmiş olduğunuz son başvuru tarihi, tarih formatında değildir.(YYYY-AA-GG)")
+            "The application deadline you entered is not in date format.(YYYY-AA-GG)")
     });
     function handleSubmit(values) {
-        let candidateCVService = new CandidateCvService()
-        candidateCVService.updateSchool(values).then(function (response) {
-            if (toast.success(response.data.message, {
-                position: "bottom-right",
-                autoClose: 4000,
-                hideProgressBar: false,
-                closeOnClick: false,
-            })) {
+        const school = {
+            schoolId: id, department: values.department, startDate:values.startDate,
+            gradiationDate: values.gradiationDate, schoolType: id,candidateId:id,
+            
 
-            }
-
-
-        })
+        }
+        console.log(school)
+        let candidateCVService  = new CandidateCvService()
+        candidateCVService.updateSchool(school)
     }
 
     return (
         <Formik initialValues={initialValues}
             validationSchema={schema}
             onSubmit={(values) => {
-                console.log(values)
+                handleSubmit(values)
             }}
         >
 
@@ -109,6 +108,7 @@ export default function SchoolAdd(props) {
                             />
                         </FormField>
                     </FormGroup>
+                    <Button color="green" >Update</Button>
                 </Form>
 
             </Segment>
