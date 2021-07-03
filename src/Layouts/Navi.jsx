@@ -37,8 +37,8 @@ export default function Navi() {
                         icon="edit outline"
                         name='Add job posting'
                     />
-
-                        {advertisementItems.length>0&&<FavoriteAdvertisement/>}
+                        <Menu.Item  >  {advertisementItems.length>0&&<FavoriteAdvertisement/>}</Menu.Item>
+                        
                         {isAuthenticated ? <Signedin signOut={handleSignOut} /> : <SignOut signIn={handleSignIn} />}
 
                     </Menu.Menu>
