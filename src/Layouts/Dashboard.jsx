@@ -21,13 +21,13 @@ export default function Dashboard() {
                     <Route path="/jadvert" component={Categories}/>
                     <Route path="/candidates" component={Categories}/>
                     <Route path="/employers" component={Categories}/>
-                    <Route path="/employees" component={Categories}/>
+                    <Route exact path="/employees" component={Categories}/>
                     </Grid.Column>
                     <Grid.Column width={11}>
                     <Route  path="/jadvert" component={JobAdvertisementList}/>
                     <Route  path="/candidates" component={CandidateList}/>
                     <Route path="/employers" component={EmployerList}/>
-                    <Route path="/employees" component={EmployeeList}/>
+                    <Route exact path="/employees" component={EmployeeList}/>
                     
                     <Route path="/jobAdvertisementDetail" component={JobAdvertisementDetail} />
                     

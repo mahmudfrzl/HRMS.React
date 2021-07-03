@@ -11,8 +11,13 @@ import "react-toastify/dist/ReactToastify.css";
 import ResumeList from './Pages/ResumeList';
 import ResumeListUpdate from './Pages/ResumeListUpdate';
 
+import EmployeeUpdate from './Pages/EmployeeUpdate';
+
+
+
 
 function App() {
+  
   return (
     <div className="App"> 
       <Navi/>
@@ -21,7 +26,8 @@ function App() {
       <Route path="/addadvert" component={JobAdvertisementAddList} />
       <Route exact path="/resume/:id" component={ResumeList} />
       <Route path="/resume/update/:id" component={ResumeListUpdate} />
-      
+      <Route  path="/employees/update/:id" component={EmployeeUpdate} />
+  
       </Container>
       <ToastContainer
         position="bottom-right"

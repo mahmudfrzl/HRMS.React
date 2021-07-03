@@ -16,7 +16,7 @@ export default function LanguageAdd() {
 
     }
     const schema = Yup.object({
-        name: Yup.string().required("Shouldn't be left blank"),
+        name: Yup.string(),
         languageLevel: Yup.number()
     });
     function handleSubmit(values) {

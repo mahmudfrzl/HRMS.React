@@ -4,7 +4,7 @@ import { Button, Card} from 'semantic-ui-react'
 import EmployeeService from '../Services/employeeService'
 
 export default function EmployeeList() {
-    const { id } = useParams()
+    
     const [employees, setEmployees] = useState([])
     useEffect(() => {
         let employeeService = new EmployeeService()
@@ -16,7 +16,7 @@ export default function EmployeeList() {
         <div>
             {
                 employees.map((employee) => (
-                    <Card fluid className="cardFloat"  left key={employee.id}>
+                    <Card fluid className="cardFloat"   key={employee.id}>
                         <Card.Content>
                             <Card.Header>{employee.firstName}  {employee.lastName}</Card.Header>
                             <Card.Description>{employee.email}</Card.Description>
@@ -32,13 +32,13 @@ export default function EmployeeList() {
                                     
                                     <br />
                                 </Link>
-                                <Link to={`employees/delete/${employee.id}`}>
+                                
                                     
                                         <Button  className="btnUpdate" basic color='red'>
                                             Delete
                                         </Button>
                                     
-                                </Link>
+                                
                             </div>
                         </Card.Content>
                     </Card>

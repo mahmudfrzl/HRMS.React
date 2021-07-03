@@ -7,35 +7,31 @@ import { toast } from "react-toastify";
 import * as Yup from "yup";
 import CandidateCvService from "../Services/candidateCVService";
 import HRMSTextInput from '../Utilities/customFormControls/HRMSTextInput';
+import { useParams } from "react-router-dom";
 export default function SkillsAdd() {
+    const {id} = useParams()
     const initialValues = {
-        usedTechnelogy: "",
+        usedTechnology: "",
 
     }
     const schema = Yup.object({
-        usedTechnelogy: Yup.string()
+        usedTechnology: Yup.string()
     });
     function handleSubmit(values) {
+        const skill = {
+            usedTechnology: values.usedTechnology,
+            candidateId:id
+        }
+        console.log(skill)
         let candidateCVService = new CandidateCvService()
-        candidateCVService.updateTechnelogy(values).then(function (response) {
-            if (toast.success(response.data.message, {
-                position: "bottom-right",
-                autoClose: 4000,
-                hideProgressBar: false,
-                closeOnClick: false,
-            })) {
-
-            }
-
-
-        })
+        candidateCVService.updateTechnelogy(skill)
     }
 
     return (
 <Formik initialValues={initialValues}
             validationSchema={schema}
             onSubmit={(values) => {
-                console.log(values)
+                handleSubmit(values)
             }}
         >
 
@@ -59,14 +55,14 @@ export default function SkillsAdd() {
                         <FormField>
                             <HRMSTextInput
                                 label="Skills"
-                                name="usedTechnelogy"
+                                name="usedTechnology"
                                 placeholder="Skills"
 
                             />
                         </FormField>
                         
                     </FormGroup>
-                    
+                    <Button color="green" >Update</Button>
                 </Form>
 
             </Segment>

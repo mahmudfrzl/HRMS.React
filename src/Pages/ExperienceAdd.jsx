@@ -1,6 +1,6 @@
 
 import { Formik, Form } from "formik";
-import { FormGroup, FormField, Label, Button, Segment, FormInput, Table } from "semantic-ui-react";
+import { FormGroup, FormField, Label, Button, Segment } from "semantic-ui-react";
 import React from "react";
 import { toast } from "react-toastify";
 import * as Yup from "yup";
@@ -8,7 +8,8 @@ import CandidateCvService from "../Services/candidateCVService";
 import HRMSTextInput from '../Utilities/customFormControls/HRMSTextInput';
 import { useParams } from "react-router-dom";
 export default function ExperienceAdd(props) {
-    const {id} = useParams()
+
+    const { id } = useParams()
     const initialValues = {
         jobPositionId: "",
         quitDate: "",
@@ -106,7 +107,10 @@ export default function ExperienceAdd(props) {
                             />
                         </FormField>
                     </FormGroup>
+
                     <Button color="green">Update</Button>
+
+
                 </Form>
 
             </Segment>
