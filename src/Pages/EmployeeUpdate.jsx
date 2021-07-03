@@ -18,7 +18,8 @@ export default function EmployeeUpdate() {
         password: ""
     }
     const schema = Yup.object({
-        email: Yup.string()
+        email: Yup.string(),
+        password: Yup.number().min(6)
     })
     function handleSubmit(values) {
 

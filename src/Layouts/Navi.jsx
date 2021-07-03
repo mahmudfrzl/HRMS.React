@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
-import { Dropdown, Menu } from 'semantic-ui-react'
+import {  Menu } from 'semantic-ui-react'
 import { Container } from 'semantic-ui-react'
+import FavoriteAdvertisement from './FavoriteAdvertisement'
 import Signedin from './Signedin'
 import SignOut from './SignOut'
 export default function Navi() {
+    const { advertisementItems } = useSelector(state => state.favoriteAdvertisement)
     const [isAuthenticated, setIsAuthenticated] = useState(true)
     const history = useHistory()
     function handleSignOut() {
@@ -34,13 +37,8 @@ export default function Navi() {
                         icon="edit outline"
                         name='Add job posting'
                     />
-                        <Dropdown item text='Language'>
-                            <Dropdown.Menu>
-                                <Dropdown.Item>English</Dropdown.Item>
-                                <Dropdown.Item>Russian</Dropdown.Item>
-                                <Dropdown.Item>Spanish</Dropdown.Item>
-                            </Dropdown.Menu>
-                        </Dropdown>
+
+                        {advertisementItems.length>0&&<FavoriteAdvertisement/>}
                         {isAuthenticated ? <Signedin signOut={handleSignOut} /> : <SignOut signIn={handleSignIn} />}
 
                     </Menu.Menu>

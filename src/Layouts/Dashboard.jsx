@@ -8,6 +8,7 @@ import EmployeeList from '../Pages/EmployeeList'
 import JobAdvertisementList from '../Pages/JobAdvertisementList'
 
 import JobAdvertisementDetail from '../Pages/JobAdvertisementDetail'
+import { ToastContainer } from 'react-toastify'
 
 
 
@@ -15,15 +16,16 @@ import JobAdvertisementDetail from '../Pages/JobAdvertisementDetail'
 export default function Dashboard() {
     return (
         <div>
+            <ToastContainer position="bottom-right" />
             <Grid>
                 <Grid.Row>
-                    <Grid.Column width={5}>
+                    <Grid.Column width={4}>
                     <Route path="/jadvert" component={Categories}/>
                     <Route path="/candidates" component={Categories}/>
                     <Route path="/employers" component={Categories}/>
                     <Route exact path="/employees" component={Categories}/>
                     </Grid.Column>
-                    <Grid.Column width={11}>
+                    <Grid.Column width={12}>
                     <Route  path="/jadvert" component={JobAdvertisementList}/>
                     <Route  path="/candidates" component={CandidateList}/>
                     <Route path="/employers" component={EmployerList}/>
