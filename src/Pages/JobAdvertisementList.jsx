@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import JobAdvertisementService from '../Services/jobAdvertisementService'
-import { Table, Button, Header, Icon, Popup } from "semantic-ui-react";
+import { Table, Button, Header, Icon, Popup, Grid } from "semantic-ui-react";
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addtoFavoriteAdvertisements } from '../store/actions/advertisementActions';
 import { toast } from 'react-toastify';
+import JobAdvertisementFilter from './JobAdvertisementFilter';
 export default function JobAdvertisementList() {
 
     const dispatch = useDispatch()
     const [jobAdvertisements, setJobAdvertisement] = useState([])
-    const colors = ["red",]
+    const colors = ["teal",]
     useEffect(() => {
         let jobAdvertisementService = new JobAdvertisementService()
         jobAdvertisementService.getJobAdvertisement().then(result => setJobAdvertisement(result.data.data))
@@ -21,6 +22,10 @@ export default function JobAdvertisementList() {
     }
     return (
         <div>
+            <Grid>
+                <Grid.Row>
+                    <Grid.Column width={4}><JobAdvertisementFilter/></Grid.Column>
+                    <Grid.Column width={12}>
             <Header as="h3" icon >
                 <Icon name="list alternate outline" />
                 <Header.Content >Job Advert List</Header.Content>
@@ -70,6 +75,9 @@ export default function JobAdvertisementList() {
                     </Table.Body>
                 </Table>
             ))}
+            </Grid.Column>
+            </Grid.Row>
+            </Grid>
         </div>
     )
 }

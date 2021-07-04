@@ -12,6 +12,7 @@ import ResumeList from './Pages/ResumeList';
 import ResumeListUpdate from './Pages/ResumeListUpdate';
 
 import EmployeeUpdate from './Pages/EmployeeUpdate';
+import JobAdvertisementList from './Pages/JobAdvertisementList';
 
 
 
@@ -27,6 +28,7 @@ function App() {
       <Route exact path="/resume/:id" component={ResumeList} />
       <Route path="/resume/update/:id" component={ResumeListUpdate} />
       <Route  path="/employees/update/:id" component={EmployeeUpdate} />
+      <Route  path="/jadvert" component={JobAdvertisementList}/>
   
       </Container>
       <ToastContainer

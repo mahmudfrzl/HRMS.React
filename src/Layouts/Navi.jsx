@@ -22,7 +22,7 @@ export default function Navi() {
         <div>
             <Menu inverted fixed='top' >
                 <Container>
-                    <Menu.Item as={Link} to={"/jadvert"}
+                    <Menu.Item as={Link} to={"/"}
                         icon="home"
                         name='home'
                     />
